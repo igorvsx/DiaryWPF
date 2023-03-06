@@ -1,0 +1,30 @@
+﻿<Window x:Class="Diarybookwpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Diarybookwpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="60,69,98,42" RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.772"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="1.787"/>
+                </TransformGroup>
+            </Border.RenderTransform>
+            <DatePicker x:Name="datePicker" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24,9,0,0" Width="574"/>
+        </Border>
+        <TextBox x:Name="noteTitle" HorizontalAlignment="Left" Margin="557,143,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="noteDescription" HorizontalAlignment="Left" Margin="551,193,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="586,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Описание"/>
+        <TextBlock HorizontalAlignment="Left" Margin="586,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55"><Run Language="ru-ru" Text="Название"/></TextBlock>
+        <ListBox x:Name="notesList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="95,123,344,127"/>
+        <Button x:Name="DeleteButton" Content="Удалить запись" HorizontalAlignment="Left" Margin="201,326,0,0" VerticalAlignment="Top" Click="DeleteButton_Click"/>
+        <Button x:Name="CreateButton" Content="Создать" HorizontalAlignment="Left" Margin="438,331,0,0" VerticalAlignment="Top" Click="CreateButton_Click"/>
+        <Button x:Name="SaveButton" Content="Обновить" HorizontalAlignment="Left" Margin="586,331,0,0" VerticalAlignment="Top" Click="SaveButton_Click"/>
+    </Grid>
+</Window>

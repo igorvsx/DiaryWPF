@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "T7QYDUbjcrx67sTxLQ59VZUJF89DwZL4Jo4q0zZ4pTAsy5JMuueROXygG2wqLEPu7+V42KfBncItykN7DWQW6w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Igor\\source\\repos\\Diarybookwpf\\Diarybookwpf\\Diarybookwpf.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Igor\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
