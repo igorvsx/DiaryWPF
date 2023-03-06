@@ -7,7 +7,6 @@ C:\Users\Igor\source\repos\Diarybookwpf\Diarybookwpf\obj\Debug\net6.0-windows\Di
 C:\Users\Igor\source\repos\Diarybookwpf\Diarybookwpf\obj\Debug\net6.0-windows\MainWindow.g.cs
 C:\Users\Igor\source\repos\Diarybookwpf\Diarybookwpf\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\Igor\source\repos\Diarybookwpf\Diarybookwpf\obj\Debug\net6.0-windows\Diarybookwpf_MarkupCompile.cache
-C:\Users\Igor\source\repos\Diarybookwpf\Diarybookwpf\obj\Debug\net6.0-windows\Diarybookwpf_MarkupCompile.lref
 C:\Users\Igor\source\repos\Diarybookwpf\Diarybookwpf\obj\Debug\net6.0-windows\MainWindow.baml
 C:\Users\Igor\source\repos\Diarybookwpf\Diarybookwpf\obj\Debug\net6.0-windows\Diarybookwpf.g.resources
 C:\Users\Igor\source\repos\Diarybookwpf\Diarybookwpf\obj\Debug\net6.0-windows\Diarybookwpf.GeneratedMSBuildEditorConfig.editorconfig
@@ -21,3 +20,4 @@ C:\Users\Igor\source\repos\Diarybookwpf\Diarybookwpf\obj\Debug\net6.0-windows\Di
 C:\Users\Igor\source\repos\Diarybookwpf\Diarybookwpf\obj\Debug\net6.0-windows\ref\Diarybookwpf.dll
 C:\Users\Igor\source\repos\Diarybookwpf\Diarybookwpf\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
 C:\Users\Igor\source\repos\Diarybookwpf\Diarybookwpf\obj\Debug\net6.0-windows\Diarybookwpf.csproj.CopyComplete
+C:\Users\Igor\source\repos\Diarybookwpf\Diarybookwpf\obj\Debug\net6.0-windows\Diarybookwpf_MarkupCompile.lref

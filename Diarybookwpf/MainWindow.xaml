@@ -5,26 +5,65 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Diarybookwpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="795">
     <Grid>
-        <Border BorderBrush="Black" BorderThickness="1" Margin="60,69,98,42" RenderTransformOrigin="0.5,0.5">
-            <Border.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="0.772"/>
-                    <RotateTransform/>
-                    <TranslateTransform X="1.787"/>
-                </TransformGroup>
-            </Border.RenderTransform>
-            <DatePicker x:Name="datePicker" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24,9,0,0" Width="574"/>
-        </Border>
-        <TextBox x:Name="noteTitle" HorizontalAlignment="Left" Margin="557,143,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="noteDescription" HorizontalAlignment="Left" Margin="551,193,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="586,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Описание"/>
-        <TextBlock HorizontalAlignment="Left" Margin="586,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55"><Run Language="ru-ru" Text="Название"/></TextBlock>
-        <ListBox x:Name="notesList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="95,123,344,127"/>
-        <Button x:Name="DeleteButton" Content="Удалить запись" HorizontalAlignment="Left" Margin="201,326,0,0" VerticalAlignment="Top" Click="DeleteButton_Click"/>
-        <Button x:Name="CreateButton" Content="Создать" HorizontalAlignment="Left" Margin="438,331,0,0" VerticalAlignment="Top" Click="CreateButton_Click"/>
-        <Button x:Name="SaveButton" Content="Обновить" HorizontalAlignment="Left" Margin="586,331,0,0" VerticalAlignment="Top" Click="SaveButton_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" MinHeight="37"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto" MinHeight="0"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="91"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Content="Date:" Margin="5,5,5,5"/>
+        <DatePicker Grid.Row="0" x:Name="datePicker" SelectedDateChanged="datePicker_SelectedDateChanged" Margin="10,5,319,5" Grid.Column="1"/>
+        <ListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="notesList" SelectionChanged="notesList_SelectionChanged" Margin="5,5,5,5"/>
+        <GroupBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Header="Note Details" Margin="5,5,5,5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" MinHeight="67"/>
+                    <RowDefinition Height="Auto" MinHeight="120"/>
+                    <RowDefinition Height="Auto" MinHeight="25"/>
+                    <RowDefinition Height="Auto" MinHeight="119"/>
+                    <RowDefinition Height="Auto" MinHeight="126"/>
+                    <RowDefinition Height="Auto" MinHeight="90"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto" MinWidth="316"/>
+                    <ColumnDefinition Width="Auto" MinWidth="84"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="Title:" Margin="5,5,5,5"/>
+                <TextBox Grid.Row="0" x:Name="noteTitle" Text="" Margin="5,5,9,5" Grid.Column="1"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="Description:" Margin="5,5,5,5"/>
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="noteDescription" Text="" Margin="5,5,9,10"/>
+            </Grid>
+        </GroupBox>
+        <Button Grid.Row="2" Grid.Column="0" x:Name="CreateButton" Content="Создать" Click="CreateButton_Click" Margin="10,265,0,21"/>
+        <Button Grid.Row="2" Grid.Column="1" x:Name="UpdateButton" Content="Обновить" Click="UpdateButton_Click" Margin="58,249,551,39"/>
+        <Button Grid.Row="2" Grid.Column="1" x:Name="DeleteButton" Content="Удалить запись" Click="DeleteButton_Click" Margin="174,0,430,50" Height="69" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>
+
+
+<!--<Border BorderBrush="Black" BorderThickness="1" Margin="60,69,98,42" RenderTransformOrigin="0.5,0.5">
+    <Border.RenderTransform>
+        <TransformGroup>
+            <ScaleTransform/>
+            <SkewTransform AngleX="0.772"/>
+            <RotateTransform/>
+            <TranslateTransform X="1.787"/>
+        </TransformGroup>
+    </Border.RenderTransform>
+    <DatePicker x:Name="datePicker" SelectedDateChanged="datePicker_SelectedDateChanged" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24,9,0,0" Width="574"/>
+</Border>
+<TextBox x:Name="noteTitle" HorizontalAlignment="Left" Margin="557,143,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+<TextBox x:Name="noteDescription" HorizontalAlignment="Left" Margin="551,193,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+<TextBlock HorizontalAlignment="Left" Margin="586,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Описание"/>
+<TextBlock HorizontalAlignment="Left" Margin="586,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55"><Run Language="ru-ru" Text="Название"/></TextBlock>
+<ListBox x:Name="notesList" SelectionChanged="notesList_SelectionChanged" Margin="95,123,344,127"/>
+<Button x:Name="DeleteButton" Content="Удалить запись" HorizontalAlignment="Left" Margin="201,326,0,0" VerticalAlignment="Top" Click="DeleteButton_Click"/>
+<Button x:Name="CreateButton" Content="Создать" HorizontalAlignment="Left" Margin="438,331,0,0" VerticalAlignment="Top" Click="CreateButton_Click"/>
+<Button x:Name="UpdateButton" Content="Обновить" HorizontalAlignment="Left" Margin="586,331,0,0" VerticalAlignment="Top" Click="UpdateButton_Click"/>-->
