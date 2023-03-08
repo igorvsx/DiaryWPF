@@ -5,45 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Diarybookwpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="795">
+        Title="MainWindow" Height="400" Width="795">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto" MinHeight="37"/>
             <RowDefinition/>
-            <RowDefinition Height="Auto" MinHeight="0"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" MinWidth="91"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" Content="Date:" Margin="5,5,5,5"/>
-        <DatePicker Grid.Row="0" x:Name="datePicker" SelectedDateChanged="datePicker_SelectedDateChanged" Margin="10,5,319,5" Grid.Column="1"/>
+        <DatePicker MinHeight="35" HorizontalAlignment="Center" x:Name="datePicker" SelectedDateChanged="datePicker_SelectedDateChanged" Grid.ColumnSpan="2" VerticalAlignment="Center" Width="575"/>
+        <ListBox MinHeight="25" Grid.Row="1" x:Name="notesList" SelectionChanged="notesList_SelectionChanged" Grid.ColumnSpan="2"/>
+        <TextBlock MinHeight="30" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"><Run Language="ru-ru" Text="Информация о заметке"/></TextBlock>
+        <TextBlock MinHeight="35" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Text="Название" FontSize="16"/>
+        <TextBlock MinHeight="35" Grid.Row="4" Grid.Column="0" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Описание" FontSize="16"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" TextWrapping="Wrap" x:Name="noteTitle" Text="" Width="590" Height="35"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Center" Grid.Row="4" TextWrapping="Wrap" x:Name="noteDescription" Text="" VerticalAlignment="Center" Width="590" Height="34"/>
+        <Button Grid.Row="5" Grid.ColumnSpan="2" x:Name="CreateButton" Content="Создать" Click="CreateButton_Click" VerticalAlignment="Center" Height="35" />
+        <Button Grid.Row="6" Grid.ColumnSpan="2" x:Name="UpdateButton" Content="Обновить" Click="UpdateButton_Click" Height="35" VerticalAlignment="Center"/>
+        <Button Grid.Row="7" Grid.ColumnSpan="2" x:Name="DeleteButton" Content="Удалить" Click="DeleteButton_Click" Height="34" VerticalAlignment="Center"/>
+        <!--<Label Grid.Row="0" Grid.Column="0" Content="Date:" Margin="5,5,5,5"/>
+        <DatePicker Grid.Row="0" x:Name="datePicker" SelectedDateChanged="datePicker_SelectedDateChanged" Margin="10,5,5,5" Grid.Column="1"/>
         <ListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="notesList" SelectionChanged="notesList_SelectionChanged" Margin="5,5,5,5"/>
         <GroupBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Header="Note Details" Margin="5,5,5,5">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" MinHeight="67"/>
-                    <RowDefinition Height="Auto" MinHeight="120"/>
-                    <RowDefinition Height="Auto" MinHeight="25"/>
-                    <RowDefinition Height="Auto" MinHeight="119"/>
+                    <RowDefinition Height="Auto" MinHeight="48"/>
+                    <RowDefinition Height="Auto" MinHeight="139"/>
+                    <RowDefinition Height="Auto" MinHeight="28"/>
+                    <RowDefinition Height="Auto" MinHeight="116"/>
                     <RowDefinition Height="Auto" MinHeight="126"/>
                     <RowDefinition Height="Auto" MinHeight="90"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto" MinWidth="316"/>
-                    <ColumnDefinition Width="Auto" MinWidth="84"/>
+                    <ColumnDefinition Width="Auto" MinWidth="108"/>
+                    <ColumnDefinition Width="Auto" MinWidth="374.853"/>
+                    <ColumnDefinition Width="Auto" MinWidth="0"/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Row="0" Grid.Column="0" Content="Title:" Margin="5,5,5,5"/>
-                <TextBox Grid.Row="0" x:Name="noteTitle" Text="" Margin="5,5,9,5" Grid.Column="1"/>
+                <TextBox Grid.Row="0" Grid.ColumnSpan="2" x:Name="noteTitle" Text="" Margin="5,5,-290,5" Grid.Column="1"/>
                 <Label Grid.Row="1" Grid.Column="0" Content="Description:" Margin="5,5,5,5"/>
-                <TextBox Grid.Row="1" Grid.Column="1" x:Name="noteDescription" Text="" Margin="5,5,9,10"/>
+                <TextBox Grid.Row="1" Grid.ColumnSpan="2" x:Name="noteDescription" Text="" Margin="10,7,-290,7" Grid.Column="1"/>
             </Grid>
         </GroupBox>
-        <Button Grid.Row="2" Grid.Column="0" x:Name="CreateButton" Content="Создать" Click="CreateButton_Click" Margin="10,265,0,21"/>
-        <Button Grid.Row="2" Grid.Column="1" x:Name="UpdateButton" Content="Обновить" Click="UpdateButton_Click" Margin="58,249,551,39"/>
-        <Button Grid.Row="2" Grid.Column="1" x:Name="DeleteButton" Content="Удалить запись" Click="DeleteButton_Click" Margin="174,0,430,50" Height="69" VerticalAlignment="Bottom"/>
+        <Button Grid.Row="2" x:Name="CreateButton" Content="Создать" Click="CreateButton_Click" Margin="0,0,0,18" HorizontalAlignment="Center" Width="59" Height="57" VerticalAlignment="Bottom"/>
+        <Button Grid.Row="2" x:Name="UpdateButton" Content="Обновить" Click="UpdateButton_Click" Margin="19,0,0,84" HorizontalAlignment="Left" Width="58" Height="45" VerticalAlignment="Bottom"/>
+        <Button Grid.Row="2" x:Name="DeleteButton" Content="Удалить запись" Click="DeleteButton_Click" Margin="4,0,0,134" Height="50" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="88"/>-->
     </Grid>
 </Window>
 
