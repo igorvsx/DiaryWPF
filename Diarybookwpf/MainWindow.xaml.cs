@@ -12,7 +12,7 @@ namespace Diarybookwpf
     public partial class MainWindow : Window
     {
         private List<Note> notes = new List<Note>();
-        
+
         private string notesFilePath = "C:\\Users\\Igor\\Desktop\\notes.json";
         public MainWindow()
         {
@@ -90,7 +90,6 @@ namespace Diarybookwpf
                 }
                 notes.Add(note);
                 SaveNotesToFile();
-
                 ShowNotesForSelectedDate();
             }
             else
@@ -100,17 +99,48 @@ namespace Diarybookwpf
         }
         private void ShowNoteDetails()
         {
-            Note note = notes[notesList.SelectedIndex];
-            noteTitle.Text = note.Title;
-            noteDescription.Text = note.Description;
+            noteTitle.Text = "";
+            noteDescription.Text = "";
+            DateTime selectedDate = datePicker.SelectedDate.GetValueOrDefault();
+            foreach (Note note in notes)
+            {
+                if (selectedDate == note.Date)
+                {
+                    foreach (var f in notesList.Items)
+                    {
+                        if (note.Title == f.ToString())
+                        {
+                            noteTitle.Text = note.Title;
+                            noteDescription.Text = note.Description;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            //noteTitle.Text = note.Title;
+            //noteDescription.Text = note.Description;
+
+            //if (note.Title == noteTitle.Text)
+            //{
+
+            //}
+            ////var notess = notes[notesList.SelectedIndex];
+            //noteTitle.Text = note.Title;
+            //noteDescription.Text = note.Description;
+            //if (selectedDate == note.Date && noteTitle.Text == note.Title)
+            //{
+            //    note = notes[notesList.SelectedIndex];
+            //    noteTitle.Text = note.Title;
+            //    noteDescription.Text = note.Description;
+            //}
+            //note = notes[notesList.SelectedIndex];
+            //noteTitle.Text = note.Title;
+            //noteDescription.Text = note.Description;
         }
         private void notesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-            if (notesList.SelectedIndex >= 0)
-            {
-                ShowNoteDetails();
-            }
+            ShowNoteDetails();
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
